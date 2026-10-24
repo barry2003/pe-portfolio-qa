@@ -22,7 +22,7 @@ Design choices: BM25 first (transparent, no embeddings to debug); answers must c
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python scripts/generate_corpus.py          # regenerates documents + questions (deterministic)
-python -m pytest -q                         # 11 tests, no network
+python -m pytest -q                         # 12 tests, no network
 python -m pe_qa.cli eval --mode retrieval   # retrieval eval, no API key needed
 export ANTHROPIC_API_KEY=...                # then:
 python -m pe_qa.cli ask "What is Marlow Packaging's trailing twelve month EBITDA?"
@@ -35,13 +35,20 @@ lookup 8, compute 4, multi-doc 4, conflict 3, period/definition 2, unanswerable 
 ## Results so far
 Retrieval only (measured, `eval --mode retrieval`, doc-level recall of the documents needed to answer):
 
-| k | mean recall | all needed docs present |
+| k | mean recall (before → after query expansion) | all needed docs present (before → after) |
 |---|---|---|
-| 4 | 0.85 | 18/23 |
-| 8 | 0.91 | 20/23 |
-| 12 | 0.93 | 20/23 |
+| 4 | 0.85 → 0.90 | 18/23 → 18/23 |
+| 8 | 0.91 → 0.99 | 20/23 → 21/23 |
+| 12 | 0.93 → 0.99 | 20/23 → 22/23 |
 
-By category at k=8: lookup, compute, conflict, period and policy are 100%; **multi-doc is 1/4**. Raising k does not fix it, so it is a ranking problem, not a window-size problem: for "which company has the smallest covenant headroom" and "largest customer concentration", BM25 prefers the board memos (their boilerplate risk paragraph repeats those exact words) over the KPI packs that hold the numbers.
+By category at k=8: lookup, compute, conflict, period and policy are 100% before and after; **multi-doc went from 1/4 (recall 0.50) to 2/4 (recall 0.93)**.
+
+Cause (before): for "smallest covenant headroom" and "largest customer concentration", BM25 preferred the board memos, whose boilerplate risk sentence repeats those exact words, over the KPI packs that hold the numbers but say "Covenant: maximum net debt / EBITDA" and "Largest customer share of revenue". Fix: `QUERY_EXPANSIONS` in `pipeline.py` appends the pack vocabulary when a question uses the analyst term (headroom, concentration). Q15 now retrieves all six packs' headline KPIs and no memo boilerplate.
+
+Still failing at k=8: Q13 (highest net debt / EBITDA) and Q14 (smallest headroom) each retrieve all six packs but miss `MEMO-MARLOW-2026-Q3`, which holds the restated EBITDA. Doc-level recall also overstates readiness: an answer to Q14 needs 13 chunks (headline + covenant for six packs, plus the restatement), more than k=8 can hold with section chunking, and Q13 at k=8 gets the covenant sections rather than the headline KPIs with the actual net debt and EBITDA. Rejected alternative: capping chunks per document lifts doc-level hit-all to 22/23, but drops the Pinecrest headline chunk from Q10/Q11 (single-company compute), so answers would get worse while the metric improved.
+
+- Overfitting risk: the glossary entries (`QUERY_EXPANSIONS`) were written after seeing the eval questions, and were checked on only 6 reworded questions.
+- Q15's gold set lists only the six packs, but each `MEMO-*-2026-Q3#summary` section also contains the largest-customer %, so the gold set undercounts valid sources.
 
 **Not yet measured:** answer-level accuracy with the live model (needs `ANTHROPIC_API_KEY`). The LLM path is covered by stub-model tests only. Do not quote an answer accuracy number until `eval --mode llm` has been run and the failures read.
 
@@ -52,7 +59,7 @@ By category at k=8: lookup, compute, conflict, period and policy are 100%; **mul
 - Unanswerable detection is only measurable in LLM mode.
 
 ## Next iterations (each is an eval-driven change; record before/after in this README)
-1. Fix multi-doc retrieval (per-document diversification, or per-company sub-queries when the question spans companies).
+1. Finish multi-doc retrieval: Q13/Q14 need more chunks than k=8 holds. Options: merge each pack into one chunk, or per-company sub-queries with k scaled to the number of companies. Add a chunk-level retrieval metric first, because doc-level recall hides this.
 2. Add a calculator tool for ratios and sums, then re-run the compute and multi-doc categories.
 3. Run `eval --mode llm`; read every failure; tighten the prompt or retrieval accordingly.
 4. Add guardrails: numeric grounding check, PII redaction at the boundary, a poisoned-document test for prompt injection.

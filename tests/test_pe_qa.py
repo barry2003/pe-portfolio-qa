@@ -77,3 +77,10 @@ def test_retrieval_score_uses_doc_level_recall():
     q = {"gold_docs": ["A", "B"]}
     assert score_retrieval(q, ["A#1", "A#2"]) == {"recall": 0.5, "hit_all": False}
     assert doc_of("A#1") == "A"
+
+
+def test_cross_portfolio_question_retrieves_packs_not_memo_boilerplate():
+    hits = [c.chunk_id for c, _ in Pipeline(str(CORPUS), None).retrieve(
+        "Which company has the largest customer concentration, and what is the percentage?")]
+    packs = {doc_of(h) for h in hits if h.startswith("PACK-")}
+    assert len(packs) == 6 and not any(h.endswith("#risks") for h in hits)

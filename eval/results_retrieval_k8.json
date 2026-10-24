@@ -194,14 +194,14 @@
       "hit_all": true
     },
     "retrieved": [
-      "MEMO-PINECREST-2026-Q3#risks",
       "PACK-PINECREST-2026-09#covenant",
-      "PACK-PINECREST-2026-09#commentary",
       "PACK-BRIGHTWATER-2026-09#covenant",
       "PACK-MARLOW-2026-09#covenant",
       "PACK-ORCHARD-2026-09#covenant",
       "PACK-TIDELINE-2026-09#covenant",
-      "PACK-KEYSTONE-2026-09#covenant"
+      "PACK-KEYSTONE-2026-09#covenant",
+      "MEMO-PINECREST-2026-Q3#risks",
+      "POLICY-FUND-REPORTING#definitions"
     ]
   },
   {
@@ -247,18 +247,18 @@
     "category": "multi-doc",
     "question": "Which portfolio company has the smallest covenant headroom?",
     "retrieval": {
-      "recall": 0.14285714285714285,
+      "recall": 0.8571428571428571,
       "hit_all": false
     },
     "retrieved": [
-      "POLICY-FUND-REPORTING#reporting-calendar",
-      "MEMO-BRIGHTWATER-2026-Q3#risks",
-      "MEMO-MARLOW-2026-Q3#risks",
-      "MEMO-ORCHARD-2026-Q3#risks",
-      "MEMO-TIDELINE-2026-Q3#risks",
-      "MEMO-KEYSTONE-2026-Q3#risks",
-      "MEMO-PINECREST-2026-Q3#risks",
-      "POLICY-FUND-REPORTING#definitions"
+      "PACK-BRIGHTWATER-2026-09#covenant",
+      "PACK-MARLOW-2026-09#covenant",
+      "PACK-ORCHARD-2026-09#covenant",
+      "PACK-TIDELINE-2026-09#covenant",
+      "PACK-KEYSTONE-2026-09#covenant",
+      "PACK-PINECREST-2026-09#covenant",
+      "POLICY-FUND-REPORTING#definitions",
+      "MEMO-BRIGHTWATER-2026-Q3#risks"
     ]
   },
   {
@@ -266,16 +266,16 @@
     "category": "multi-doc",
     "question": "Which company has the largest customer concentration, and what is the percentage?",
     "retrieval": {
-      "recall": 0.0,
-      "hit_all": false
+      "recall": 1.0,
+      "hit_all": true
     },
     "retrieved": [
-      "MEMO-BRIGHTWATER-2026-Q3#risks",
-      "MEMO-MARLOW-2026-Q3#risks",
-      "MEMO-ORCHARD-2026-Q3#risks",
-      "MEMO-TIDELINE-2026-Q3#risks",
-      "MEMO-KEYSTONE-2026-Q3#risks",
-      "MEMO-PINECREST-2026-Q3#risks",
+      "PACK-BRIGHTWATER-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-MARLOW-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-ORCHARD-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-KEYSTONE-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-PINECREST-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
       "MEMO-BRIGHTWATER-2026-Q3#summary",
       "MEMO-MARLOW-2026-Q3#summary"
     ]

@@ -158,10 +158,10 @@
       "hit_all": true
     },
     "retrieved": [
-      "MEMO-PINECREST-2026-Q3#risks",
       "PACK-PINECREST-2026-09#covenant",
-      "PACK-PINECREST-2026-09#commentary",
-      "PACK-BRIGHTWATER-2026-09#covenant"
+      "PACK-BRIGHTWATER-2026-09#covenant",
+      "PACK-MARLOW-2026-09#covenant",
+      "PACK-ORCHARD-2026-09#covenant"
     ]
   },
   {
@@ -199,14 +199,14 @@
     "category": "multi-doc",
     "question": "Which portfolio company has the smallest covenant headroom?",
     "retrieval": {
-      "recall": 0.14285714285714285,
+      "recall": 0.5714285714285714,
       "hit_all": false
     },
     "retrieved": [
-      "POLICY-FUND-REPORTING#reporting-calendar",
-      "MEMO-BRIGHTWATER-2026-Q3#risks",
-      "MEMO-MARLOW-2026-Q3#risks",
-      "MEMO-ORCHARD-2026-Q3#risks"
+      "PACK-BRIGHTWATER-2026-09#covenant",
+      "PACK-MARLOW-2026-09#covenant",
+      "PACK-ORCHARD-2026-09#covenant",
+      "PACK-TIDELINE-2026-09#covenant"
     ]
   },
   {
@@ -214,14 +214,14 @@
     "category": "multi-doc",
     "question": "Which company has the largest customer concentration, and what is the percentage?",
     "retrieval": {
-      "recall": 0.0,
+      "recall": 0.6666666666666666,
       "hit_all": false
     },
     "retrieved": [
-      "MEMO-BRIGHTWATER-2026-Q3#risks",
-      "MEMO-MARLOW-2026-Q3#risks",
-      "MEMO-ORCHARD-2026-Q3#risks",
-      "MEMO-TIDELINE-2026-Q3#risks"
+      "PACK-BRIGHTWATER-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-MARLOW-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-ORCHARD-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-KEYSTONE-2026-09#headline-kpis-trailing-twelve-months-to-"
     ]
   },
   {

@@ -226,18 +226,18 @@
       "hit_all": true
     },
     "retrieved": [
-      "MEMO-PINECREST-2026-Q3#risks",
       "PACK-PINECREST-2026-09#covenant",
-      "PACK-PINECREST-2026-09#commentary",
       "PACK-BRIGHTWATER-2026-09#covenant",
       "PACK-MARLOW-2026-09#covenant",
       "PACK-ORCHARD-2026-09#covenant",
       "PACK-TIDELINE-2026-09#covenant",
       "PACK-KEYSTONE-2026-09#covenant",
+      "MEMO-PINECREST-2026-Q3#risks",
+      "POLICY-FUND-REPORTING#definitions",
+      "PACK-PINECREST-2026-09#commentary",
+      "PACK-PINECREST-2026-09#headline-kpis-trailing-twelve-months-to-",
       "MEMO-BRIGHTWATER-2026-Q3#risks",
-      "MEMO-MARLOW-2026-Q3#risks",
-      "MEMO-ORCHARD-2026-Q3#risks",
-      "MEMO-TIDELINE-2026-Q3#risks"
+      "MEMO-MARLOW-2026-Q3#risks"
     ]
   },
   {
@@ -291,22 +291,22 @@
     "category": "multi-doc",
     "question": "Which portfolio company has the smallest covenant headroom?",
     "retrieval": {
-      "recall": 0.5714285714285714,
-      "hit_all": false
+      "recall": 1.0,
+      "hit_all": true
     },
     "retrieved": [
-      "POLICY-FUND-REPORTING#reporting-calendar",
+      "PACK-BRIGHTWATER-2026-09#covenant",
+      "PACK-MARLOW-2026-09#covenant",
+      "PACK-ORCHARD-2026-09#covenant",
+      "PACK-TIDELINE-2026-09#covenant",
+      "PACK-KEYSTONE-2026-09#covenant",
+      "PACK-PINECREST-2026-09#covenant",
+      "POLICY-FUND-REPORTING#definitions",
       "MEMO-BRIGHTWATER-2026-Q3#risks",
       "MEMO-MARLOW-2026-Q3#risks",
       "MEMO-ORCHARD-2026-Q3#risks",
       "MEMO-TIDELINE-2026-Q3#risks",
-      "MEMO-KEYSTONE-2026-Q3#risks",
-      "MEMO-PINECREST-2026-Q3#risks",
-      "POLICY-FUND-REPORTING#definitions",
-      "POLICY-FUND-REPORTING#restatements-and-materiality",
-      "PACK-BRIGHTWATER-2026-09#covenant",
-      "PACK-MARLOW-2026-09#covenant",
-      "PACK-ORCHARD-2026-09#covenant"
+      "MEMO-KEYSTONE-2026-Q3#risks"
     ]
   },
   {
@@ -314,16 +314,16 @@
     "category": "multi-doc",
     "question": "Which company has the largest customer concentration, and what is the percentage?",
     "retrieval": {
-      "recall": 0.0,
-      "hit_all": false
+      "recall": 1.0,
+      "hit_all": true
     },
     "retrieved": [
-      "MEMO-BRIGHTWATER-2026-Q3#risks",
-      "MEMO-MARLOW-2026-Q3#risks",
-      "MEMO-ORCHARD-2026-Q3#risks",
-      "MEMO-TIDELINE-2026-Q3#risks",
-      "MEMO-KEYSTONE-2026-Q3#risks",
-      "MEMO-PINECREST-2026-Q3#risks",
+      "PACK-BRIGHTWATER-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-MARLOW-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-ORCHARD-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-KEYSTONE-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-PINECREST-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
       "MEMO-BRIGHTWATER-2026-Q3#summary",
       "MEMO-MARLOW-2026-Q3#summary",
       "MEMO-ORCHARD-2026-Q3#summary",

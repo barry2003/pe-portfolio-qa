@@ -16,6 +16,17 @@ Rules:
 6. Respond with a single JSON object and nothing else:
 {"status": "answered" | "not_found" | "conflict", "answer": "<text>", "citations": ["<chunk id>", ...]}"""
 
+# Analyst terms -> the line items packs actually report. Without this, BM25 matches the memos' boilerplate
+# risk sentence ("customer concentration ... covenant headroom") instead of the packs that hold the numbers.
+QUERY_EXPANSIONS = {
+    r"\bheadroom\b": "covenant maximum net debt ebitda",
+    r"\bconcentration\b": "largest customer share revenue",
+}
+
+
+def expand_query(question: str) -> str:
+    return question + "".join(f" {terms}" for pat, terms in QUERY_EXPANSIONS.items() if re.search(pat, question, re.I))
+
 
 @dataclass
 class Answer:
@@ -37,7 +48,7 @@ class Pipeline:
         self.llm, self.k = llm, k
 
     def retrieve(self, question: str, k: int | None = None) -> list[tuple[Chunk, float]]:
-        scores = self.index.score(question)
+        scores = self.index.score(expand_query(question))
         order = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[: k or self.k]
         return [(self.chunks[i], scores[i]) for i in order if scores[i] > 0]
 
