@@ -8,6 +8,7 @@ class LLMResult:
     text: str
     input_tokens: int = 0
     output_tokens: int = 0
+    model: str = ""
 
 
 class AnthropicLLM:
@@ -24,11 +25,11 @@ class AnthropicLLM:
 
     def complete(self, system: str, user: str) -> LLMResult:
         r = self.client.messages.create(
-            model=self.model, max_tokens=self.max_tokens, temperature=0,
+            model=self.model, max_tokens=self.max_tokens,
             system=system, messages=[{"role": "user", "content": user}],
         )
         text = "".join(b.text for b in r.content if getattr(b, "type", "") == "text")
-        return LLMResult(text, r.usage.input_tokens, r.usage.output_tokens)
+        return LLMResult(text, r.usage.input_tokens, r.usage.output_tokens, r.model)
 
 
 class StubLLM:

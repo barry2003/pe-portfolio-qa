@@ -45,12 +45,12 @@ By category at k=8: lookup, compute, conflict, period and policy are 100% before
 
 Cause (before): for "smallest covenant headroom" and "largest customer concentration", BM25 preferred the board memos, whose boilerplate risk sentence repeats those exact words, over the KPI packs that hold the numbers but say "Covenant: maximum net debt / EBITDA" and "Largest customer share of revenue". Fix: `QUERY_EXPANSIONS` in `pipeline.py` appends the pack vocabulary when a question uses the analyst term (headroom, concentration). Q15 now retrieves all six packs' headline KPIs and no memo boilerplate.
 
-Still failing at k=8: Q13 (highest net debt / EBITDA) and Q14 (smallest headroom) each retrieve all six packs but miss `MEMO-MARLOW-2026-Q3`, which holds the restated EBITDA. Doc-level recall also overstates readiness: an answer to Q14 needs 13 chunks (headline + covenant for six packs, plus the restatement), more than k=8 can hold with section chunking, and Q13 at k=8 gets the covenant sections rather than the headline KPIs with the actual net debt and EBITDA. Rejected alternative: capping chunks per document lifts doc-level hit-all to 22/23, but drops the Pinecrest headline chunk from Q10/Q11 (single-company compute), so answers would get worse while the metric improved.
+Still failing at k=8: Q13 (highest net debt / EBITDA) and Q14 (smallest headroom) each retrieve all six packs but miss `MEMO-MARLOW-2026-Q3`, which holds the restated EBITDA. Doc-level recall also overstates readiness: an answer to Q14 needs 13 chunks (headline + covenant for six packs, plus the restatement), more than k=8 can hold with section chunking, and Q13 at k=8 gets the covenant sections rather than the headline KPIs with the actual net debt and EBITDA. Rejected alternative: capping chunks per document lifts doc-level hit-all to 22/23 (not re-measured in this pass). Its effect on single-company compute is untested: Q10 retrieves the Pinecrest headline chunk at k=8 today, and whether a cap would drop it has not been measured. Q11 already misses that chunk at k=8 without a cap: the six companies' covenant chunks fill its slots, so it is hit-all at doc level but lacks the net debt and EBITDA it needs.
 
 - Overfitting risk: the glossary entries (`QUERY_EXPANSIONS`) were written after seeing the eval questions, and were checked on only 6 reworded questions.
 - Q15's gold set lists only the six packs, but each `MEMO-*-2026-Q3#summary` section also contains the largest-customer %, so the gold set undercounts valid sources.
 
-**Not yet measured:** answer-level accuracy with the live model (needs `ANTHROPIC_API_KEY`). The LLM path is covered by stub-model tests only. Do not quote an answer accuracy number until `eval --mode llm` has been run and the failures read.
+**Live eval (k=8):** 23/26 answers correct as scored, 21/26 if correct citations are also required. Q18 and Q19 lost their citations to the `max_tokens=600` cutoff: the JSON was truncated, so parsing fell back to an uncited answer. This is one sample on `claude-sonnet-5-5` with no temperature set (the 2026-10-21 API version rejects sampling parameters), so scores can vary between runs. Per-question failures and root causes: [docs/failure_analysis.md](docs/failure_analysis.md).
 
 ## Known limitations
 - The corpus is tiny (13 documents, about 45 chunks), so retrieval is easier here than in a real deployment; treat recall numbers as a harness check, not a benchmark.
@@ -61,6 +61,6 @@ Still failing at k=8: Q13 (highest net debt / EBITDA) and Q14 (smallest headroom
 ## Next iterations (each is an eval-driven change; record before/after in this README)
 1. Finish multi-doc retrieval: Q13/Q14 need more chunks than k=8 holds. Options: merge each pack into one chunk, or per-company sub-queries with k scaled to the number of companies. Add a chunk-level retrieval metric first, because doc-level recall hides this.
 2. Add a calculator tool for ratios and sums, then re-run the compute and multi-doc categories.
-3. Run `eval --mode llm`; read every failure; tighten the prompt or retrieval accordingly.
+3. Read failures and fix: see `docs/failure_analysis.md`.
 4. Add guardrails: numeric grounding check, PII redaction at the boundary, a poisoned-document test for prompt injection.
 5. Wrap the pipeline in an n8n workflow (email or form in, cited answer out).

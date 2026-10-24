@@ -38,6 +38,7 @@ class Answer:
     flags: list[str] = field(default_factory=list)
     input_tokens: int = 0
     output_tokens: int = 0
+    model: str = ""
 
 
 class Pipeline:
@@ -82,4 +83,4 @@ class Pipeline:
         if d.get("_parse_error"):
             flags.append("unparsed_model_output")
         return Answer(question, d.get("status", "answered"), str(d.get("answer", "")), cites, retrieved, flags,
-                      res.input_tokens, res.output_tokens)
+                      res.input_tokens, res.output_tokens, res.model)

@@ -41,6 +41,7 @@ def cmd_eval(args):
             row["flags"] = a.flags
             row["score"] = score_answer(q, a.status, a.answer, a.citations)
             row["tokens"] = [a.input_tokens, a.output_tokens]
+            row["model"] = a.model
         rows.append(row)
     out = ROOT / "eval" / f"results_{args.mode}_k{args.k}.json"
     out.write_text(json.dumps(rows, indent=2), encoding="utf-8")
