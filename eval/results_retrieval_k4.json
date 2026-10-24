@@ -1,0 +1,383 @@
+[
+  {
+    "id": "Q01",
+    "category": "lookup",
+    "question": "What was Brightwater Logistics' trailing twelve month revenue, in $M?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "PACK-BRIGHTWATER-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-BRIGHTWATER-2026-09#covenant",
+      "MEMO-BRIGHTWATER-2026-Q3#summary",
+      "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-"
+    ]
+  },
+  {
+    "id": "Q02",
+    "category": "lookup",
+    "question": "What is Tideline Software's gross margin?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "MEMO-TIDELINE-2026-Q3#summary",
+      "PACK-TIDELINE-2026-09#commentary",
+      "MEMO-TIDELINE-2026-Q3#risks"
+    ]
+  },
+  {
+    "id": "Q03",
+    "category": "lookup",
+    "question": "How many employees does Pinecrest HVAC Services have?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "MEMO-PINECREST-2026-Q3#summary",
+      "PACK-PINECREST-2026-09#commentary",
+      "MEMO-PINECREST-2026-Q3#risks",
+      "MEMO-PINECREST-2026-Q3#automation-and-process-opportunities"
+    ]
+  },
+  {
+    "id": "Q04",
+    "category": "lookup",
+    "question": "What share of Orchard Foods' revenue comes from its largest customer?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "MEMO-ORCHARD-2026-Q3#summary",
+      "PACK-ORCHARD-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-ORCHARD-2026-09#commentary",
+      "MEMO-ORCHARD-2026-Q3#risks"
+    ]
+  },
+  {
+    "id": "Q05",
+    "category": "lookup",
+    "question": "What is the maximum net debt to EBITDA allowed by Keystone Dental Supply's covenant?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "PACK-KEYSTONE-2026-09#covenant",
+      "PACK-KEYSTONE-2026-09#commentary",
+      "MEMO-KEYSTONE-2026-Q3#fiscal-year-note",
+      "MEMO-KEYSTONE-2026-Q3#summary"
+    ]
+  },
+  {
+    "id": "Q06",
+    "category": "lookup",
+    "question": "What is Tideline Software's net revenue retention?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "MEMO-TIDELINE-2026-Q3#summary",
+      "PACK-TIDELINE-2026-09#covenant",
+      "PACK-TIDELINE-2026-09#commentary"
+    ]
+  },
+  {
+    "id": "Q07",
+    "category": "lookup",
+    "question": "What is Tideline Software's ARR in $M?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "MEMO-TIDELINE-2026-Q3#summary",
+      "PACK-TIDELINE-2026-09#commentary",
+      "MEMO-TIDELINE-2026-Q3#risks"
+    ]
+  },
+  {
+    "id": "Q08",
+    "category": "lookup",
+    "question": "How many FTEs does Brightwater spend on carrier invoice reconciliation?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "MEMO-BRIGHTWATER-2026-Q3#automation-and-process-opportunities",
+      "MEMO-BRIGHTWATER-2026-Q3#summary",
+      "PACK-BRIGHTWATER-2026-09#commentary",
+      "MEMO-BRIGHTWATER-2026-Q3#risks"
+    ]
+  },
+  {
+    "id": "Q09",
+    "category": "compute",
+    "question": "What is Brightwater Logistics' EBITDA margin (EBITDA divided by revenue), in percent?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "PACK-BRIGHTWATER-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "MEMO-BRIGHTWATER-2026-Q3#summary",
+      "PACK-BRIGHTWATER-2026-09#covenant",
+      "POLICY-FUND-REPORTING#definitions"
+    ]
+  },
+  {
+    "id": "Q10",
+    "category": "compute",
+    "question": "What is Pinecrest HVAC Services' net debt divided by EBITDA?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "PACK-PINECREST-2026-09#covenant",
+      "MEMO-PINECREST-2026-Q3#summary",
+      "PACK-PINECREST-2026-09#commentary",
+      "PACK-PINECREST-2026-09#headline-kpis-trailing-twelve-months-to-"
+    ]
+  },
+  {
+    "id": "Q11",
+    "category": "compute",
+    "question": "How many turns of covenant headroom does Pinecrest have (covenant maximum minus actual leverage)?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "MEMO-PINECREST-2026-Q3#risks",
+      "PACK-PINECREST-2026-09#covenant",
+      "PACK-PINECREST-2026-09#commentary",
+      "PACK-BRIGHTWATER-2026-09#covenant"
+    ]
+  },
+  {
+    "id": "Q12",
+    "category": "compute",
+    "question": "What is Tideline Software's EBITDA margin in percent?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "MEMO-TIDELINE-2026-Q3#summary",
+      "PACK-TIDELINE-2026-09#covenant",
+      "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-TIDELINE-2026-09#commentary"
+    ]
+  },
+  {
+    "id": "Q13",
+    "category": "multi-doc",
+    "question": "Which portfolio company has the highest net debt to EBITDA?",
+    "retrieval": {
+      "recall": 0.42857142857142855,
+      "hit_all": false
+    },
+    "retrieved": [
+      "POLICY-FUND-REPORTING#definitions",
+      "PACK-BRIGHTWATER-2026-09#covenant",
+      "PACK-MARLOW-2026-09#covenant",
+      "PACK-ORCHARD-2026-09#covenant"
+    ]
+  },
+  {
+    "id": "Q14",
+    "category": "multi-doc",
+    "question": "Which portfolio company has the smallest covenant headroom?",
+    "retrieval": {
+      "recall": 0.14285714285714285,
+      "hit_all": false
+    },
+    "retrieved": [
+      "POLICY-FUND-REPORTING#reporting-calendar",
+      "MEMO-BRIGHTWATER-2026-Q3#risks",
+      "MEMO-MARLOW-2026-Q3#risks",
+      "MEMO-ORCHARD-2026-Q3#risks"
+    ]
+  },
+  {
+    "id": "Q15",
+    "category": "multi-doc",
+    "question": "Which company has the largest customer concentration, and what is the percentage?",
+    "retrieval": {
+      "recall": 0.0,
+      "hit_all": false
+    },
+    "retrieved": [
+      "MEMO-BRIGHTWATER-2026-Q3#risks",
+      "MEMO-MARLOW-2026-Q3#risks",
+      "MEMO-ORCHARD-2026-Q3#risks",
+      "MEMO-TIDELINE-2026-Q3#risks"
+    ]
+  },
+  {
+    "id": "Q16",
+    "category": "multi-doc",
+    "question": "What is the total trailing twelve month revenue across all six portfolio companies, in $M?",
+    "retrieval": {
+      "recall": 0.3333333333333333,
+      "hit_all": false
+    },
+    "retrieved": [
+      "POLICY-FUND-REPORTING#reporting-calendar",
+      "POLICY-FUND-REPORTING#definitions",
+      "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-BRIGHTWATER-2026-09#headline-kpis-trailing-twelve-months-to-"
+    ]
+  },
+  {
+    "id": "Q17",
+    "category": "conflict",
+    "question": "What is Marlow Packaging's trailing twelve month EBITDA?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "PACK-MARLOW-2026-09#covenant",
+      "POLICY-FUND-REPORTING#definitions",
+      "PACK-MARLOW-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "MEMO-MARLOW-2026-Q3#summary"
+    ]
+  },
+  {
+    "id": "Q18",
+    "category": "conflict",
+    "question": "What is Marlow Packaging's net debt divided by EBITDA?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "POLICY-FUND-REPORTING#definitions",
+      "PACK-MARLOW-2026-09#covenant",
+      "PACK-MARLOW-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "MEMO-MARLOW-2026-Q3#summary"
+    ]
+  },
+  {
+    "id": "Q19",
+    "category": "conflict",
+    "question": "Does Marlow's EBITDA restatement exceed the fund's materiality threshold?",
+    "retrieval": {
+      "recall": 0.6666666666666666,
+      "hit_all": false
+    },
+    "retrieved": [
+      "POLICY-FUND-REPORTING#definitions",
+      "POLICY-FUND-REPORTING#restatements-and-materiality",
+      "MEMO-MARLOW-2026-Q3#restatement",
+      "MEMO-KEYSTONE-2026-Q3#fiscal-year-note"
+    ]
+  },
+  {
+    "id": "Q20",
+    "category": "period",
+    "question": "What was Keystone Dental Supply's FY2026 revenue, in $M?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "MEMO-KEYSTONE-2026-Q3#fiscal-year-note",
+      "MEMO-KEYSTONE-2026-Q3#summary",
+      "PACK-KEYSTONE-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-KEYSTONE-2026-09#commentary"
+    ]
+  },
+  {
+    "id": "Q21",
+    "category": "period",
+    "question": "When does Keystone Dental Supply's fiscal year end?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "MEMO-KEYSTONE-2026-Q3#fiscal-year-note",
+      "PACK-KEYSTONE-2026-09#commentary",
+      "MEMO-KEYSTONE-2026-Q3#summary",
+      "PACK-KEYSTONE-2026-09#covenant"
+    ]
+  },
+  {
+    "id": "Q22",
+    "category": "unanswerable",
+    "question": "What is Tideline Software's Net Promoter Score?",
+    "retrieval": null,
+    "retrieved": [
+      "MEMO-TIDELINE-2026-Q3#summary",
+      "PACK-TIDELINE-2026-09#covenant",
+      "PACK-TIDELINE-2026-09#commentary",
+      "MEMO-TIDELINE-2026-Q3#risks"
+    ]
+  },
+  {
+    "id": "Q23",
+    "category": "unanswerable",
+    "question": "What was Keystone Dental Supply's FY2023 revenue?",
+    "retrieval": null,
+    "retrieved": [
+      "MEMO-KEYSTONE-2026-Q3#summary",
+      "MEMO-KEYSTONE-2026-Q3#fiscal-year-note",
+      "PACK-KEYSTONE-2026-09#commentary",
+      "MEMO-KEYSTONE-2026-Q3#risks"
+    ]
+  },
+  {
+    "id": "Q24",
+    "category": "unanswerable",
+    "question": "What is the compensation of Orchard Foods' CEO?",
+    "retrieval": null,
+    "retrieved": [
+      "MEMO-ORCHARD-2026-Q3#summary",
+      "PACK-ORCHARD-2026-09#commentary",
+      "MEMO-ORCHARD-2026-Q3#risks",
+      "MEMO-ORCHARD-2026-Q3#automation-and-process-opportunities"
+    ]
+  },
+  {
+    "id": "Q25",
+    "category": "policy",
+    "question": "What percentage restatement does the fund treat as material?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "POLICY-FUND-REPORTING#restatements-and-materiality",
+      "POLICY-FUND-REPORTING#definitions",
+      "POLICY-FUND-REPORTING#reporting-calendar",
+      "MEMO-MARLOW-2026-Q3#restatement"
+    ]
+  },
+  {
+    "id": "Q26",
+    "category": "policy",
+    "question": "Who must be notified when a restatement is material, and within how many business days?",
+    "retrieval": {
+      "recall": 1.0,
+      "hit_all": true
+    },
+    "retrieved": [
+      "POLICY-FUND-REPORTING#restatements-and-materiality",
+      "MEMO-KEYSTONE-2026-Q3#automation-and-process-opportunities",
+      "POLICY-FUND-REPORTING#reporting-calendar",
+      "MEMO-MARLOW-2026-Q3#restatement"
+    ]
+  }
+]
