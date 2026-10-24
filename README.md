@@ -50,7 +50,9 @@ Still failing at k=8: Q13 (highest net debt / EBITDA) and Q14 (smallest headroom
 - Overfitting risk: the glossary entries (`QUERY_EXPANSIONS`) were written after seeing the eval questions, and were checked on only 6 reworded questions.
 - Q15's gold set lists only the six packs, but each `MEMO-*-2026-Q3#summary` section also contains the largest-customer %, so the gold set undercounts valid sources.
 
-**Live eval (k=8):** 23/26 answers correct as scored, 21/26 if correct citations are also required. Q18 and Q19 lost their citations to the `max_tokens=600` cutoff: the JSON was truncated, so parsing fell back to an uncited answer. This is one sample on `claude-sonnet-5-5` with no temperature set (the 2026-10-21 API version rejects sampling parameters), so scores can vary between runs. Per-question failures and root causes: [docs/failure_analysis.md](docs/failure_analysis.md).
+**Live eval (k=8):** 23/26 answers correct as scored, 23/26 with citations required (before: 23/26 and 21/26). The scorer now also requires at least one citation that points at a retrieved chunk for an answered or conflict result. Raising `max_tokens` from 600 to 1200 fixed Q18 and Q19, whose JSON had been truncated so their citations were lost (longest output now 682 tokens). Remaining failures are Q11, Q13 and Q14, all retrieval misses where the model correctly answered `not_found`. This is one sample per run on `claude-sonnet-5-5` with no temperature set (the 2026-10-21 API version rejects sampling parameters), so scores can vary between runs. Per-question failures and root causes for both runs: [docs/failure_analysis.md](docs/failure_analysis.md).
+
+Scorer terms: *as scored* = the scorer's `correct` field (status, gold values and text, plus at least one citation that points at a retrieved chunk); *with citations required* = `correct` and also every gold document cited (`cite_ok`).
 
 ## Known limitations
 - The corpus is tiny (13 documents, about 45 chunks), so retrieval is easier here than in a real deployment; treat recall numbers as a harness check, not a benchmark.

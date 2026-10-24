@@ -17,5 +17,5 @@ Prototype: question answering over synthetic PE portfolio documents (monthly pac
 - Never commit `.env` or keys.
 - Answers must be status answered|not_found|conflict with citations that exist in retrieved context.
 - Record before/after eval numbers for any retrieval change.
-- Known failure: multi-doc questions (Q14, Q15) because memos outrank packs. Live-model accuracy: 23/26 as scored, 21/26 with citations required (one sample).
+- Known failure: multi-doc questions Q13, Q14 (k=8 can't hold every pack's headline + covenant chunks plus the restatement memo); Q15 passes. Live-model accuracy: 23/26 as scored, 23/26 with citations required (one sample, max_tokens=1200).
 - Show diffs before committing; the owner makes the commits.

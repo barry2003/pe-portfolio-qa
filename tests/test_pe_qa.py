@@ -67,6 +67,15 @@ def test_score_conflict_requires_restated_value():
     assert good["correct"] and good["cite_ok"] and not bad["correct"]
 
 
+def test_score_answer_requires_a_valid_citation():
+    q = {"gold_status": "conflict", "gold_values": [6.8], "tol": None, "gold_text": [], "gold_docs": ["A"]}
+    text = "Restated to $6.8M (was $7.4M)"
+    assert not score_answer(q, "conflict", text, [], ["A#x"])["correct"]
+    assert not score_answer(q, "conflict", text, ["Z#q"], ["A#x"])["correct"]
+    s = score_answer(q, "conflict", text, ["A#x"], ["A#x"])
+    assert s["correct"] and s["valid_cite"]
+
+
 def test_score_not_found_only_passes_when_model_abstains():
     q = {"gold_status": "not_found", "gold_values": [], "tol": None, "gold_text": [], "gold_docs": []}
     assert score_answer(q, "not_found", "not in corpus", [])["correct"]

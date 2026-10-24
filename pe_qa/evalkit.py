@@ -35,16 +35,19 @@ def score_retrieval(q: dict, retrieved_chunk_ids: list[str]) -> dict | None:
     return {"recall": len(gold & got) / len(gold), "hit_all": gold <= got}
 
 
-def score_answer(q: dict, status: str, answer: str, citations: list[str]) -> dict:
+def score_answer(q: dict, status: str, answer: str, citations: list[str], retrieved: list[str] | None = None) -> dict:
     status_ok = status == q["gold_status"] or (q["gold_status"] == "conflict" and status == "answered" and
                                                re.search(r"restat|supersed|conflict|differ", answer, re.I) is not None)
     vals_ok = all(value_found(v, answer, q.get("tol")) for v in q["gold_values"])
     text_ok = all(any(t.lower() in answer.lower() for t in [g]) for g in q["gold_text"])
     cited_docs = {doc_of(c) for c in citations}
     cite_ok = set(q["gold_docs"]) <= cited_docs if q["gold_docs"] else True
+    # A citation is valid only if it points at a retrieved chunk (when the retrieved list is known).
+    valid_cite = any(retrieved is None or c in retrieved for c in citations)
     if q["gold_status"] == "not_found":
         correct = status == "not_found"
         cite_ok = True
     else:
-        correct = status_ok and vals_ok and text_ok
-    return {"status_ok": status_ok, "values_ok": vals_ok, "text_ok": text_ok, "cite_ok": cite_ok, "correct": correct}
+        correct = status_ok and vals_ok and text_ok and valid_cite
+    return {"status_ok": status_ok, "values_ok": vals_ok, "text_ok": text_ok, "cite_ok": cite_ok,
+            "valid_cite": valid_cite, "correct": correct}

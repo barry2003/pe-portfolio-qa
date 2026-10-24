@@ -39,7 +39,7 @@ def cmd_eval(args):
             row["status"] = a.status
             row["citations"] = a.citations
             row["flags"] = a.flags
-            row["score"] = score_answer(q, a.status, a.answer, a.citations)
+            row["score"] = score_answer(q, a.status, a.answer, a.citations, a.retrieved)
             row["tokens"] = [a.input_tokens, a.output_tokens]
             row["model"] = a.model
         rows.append(row)

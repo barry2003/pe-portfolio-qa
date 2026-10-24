@@ -12,7 +12,7 @@ class LLMResult:
 
 
 class AnthropicLLM:
-    def __init__(self, model: str | None = None, max_tokens: int = 600):
+    def __init__(self, model: str | None = None, max_tokens: int = 1200):
         try:
             import anthropic
         except ImportError as e:  # pragma: no cover

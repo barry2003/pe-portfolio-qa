@@ -7,7 +7,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Brightwater Logistics' trailing twelve month revenue (TTM to 30 Sep 2026) was $84.2M, per the September 2026 KPI pack dated 2026-10-08. The figures are management accounts and are unaudited.",
+    "answer": "Brightwater Logistics' trailing twelve month revenue (TTM to 30 Sep 2026) was $84.2M. The figure comes from the September 2026 KPI pack, which is based on unaudited management accounts.",
     "status": "answered",
     "citations": [
       "PACK-BRIGHTWATER-2026-09#headline-kpis-trailing-twelve-months-to-",
@@ -19,11 +19,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       2244,
-      166
+      160
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -35,10 +36,11 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Tideline Software's gross margin is 74.0% for the trailing twelve months to 30 Sep 2026, per the September 2026 KPI pack (dated 2026-10-08). The Q3 board memo does not give a different gross margin figure, so there is no conflict.",
+    "answer": "Tideline Software's gross margin is 74.0% for the trailing twelve months to 30 Sep 2026, per the September 2026 KPI pack (dated 2026-10-08). No other document gives a different gross margin for Tideline. Note that the figures are management accounts and unaudited.",
     "status": "answered",
     "citations": [
-      "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-"
+      "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "PACK-TIDELINE-2026-09#commentary"
     ],
     "flags": [],
     "score": {
@@ -46,11 +48,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1867,
-      148
+      175
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -62,7 +65,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Pinecrest HVAC Services has 301 employees (headcount of 301). The Q3 2026 board memo (dated 2026-10-14) and the September 2026 KPI pack (dated 2026-10-08) report the same figure, so there is no conflict.",
+    "answer": "Pinecrest HVAC Services has 301 employees (headcount of 301). The Q3 2026 board memo (dated 2026-10-14) and the September 2026 KPI pack (dated 2026-10-08) both report this same figure, so there is no conflict.",
     "status": "answered",
     "citations": [
       "MEMO-PINECREST-2026-Q3#summary",
@@ -74,11 +77,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1368,
-      166
+      167
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -90,7 +94,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Orchard Foods' largest customer represents 22.0% of revenue. The September 2026 KPI pack (dated 2026-10-08) and the Q3 2026 board memo (dated 2026-10-14) give the same figure, so there is no conflict.",
+    "answer": "Orchard Foods' largest customer represents 22.0% of revenue. The September 2026 KPI pack (dated 2026-10-08) and the Q3 2026 board memo (dated 2026-10-14) both report this same figure, so there is no conflict.",
     "status": "answered",
     "citations": [
       "PACK-ORCHARD-2026-09#headline-kpis-trailing-twelve-months-to-",
@@ -102,11 +106,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       2010,
-      166
+      167
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -129,6 +134,7 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
@@ -145,7 +151,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Tideline Software's net revenue retention is 108%, per the September 2026 KPI Pack dated 2026-10-08 (trailing twelve months to 30 Sep 2026). The figure comes from unaudited management accounts. No other document in the context gives a different value.",
+    "answer": "Tideline Software's net revenue retention is 108%, per the September 2026 KPI Pack (dated 2026-10-08, figures are TTM to 30 Sep 2026; management accounts, unaudited). No other document in the context gives a different NRR value.",
     "status": "answered",
     "citations": [
       "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
@@ -157,11 +163,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1757,
-      168
+      165
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -173,7 +180,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Tideline Software's ARR is $24.8M, per the September 2026 monthly KPI pack dated 2026-10-08.",
+    "answer": "Tideline Software's ARR is $24.8M, per the September 2026 monthly KPI pack dated 2026-10-08. No other document in the context gives a different ARR value.",
     "status": "answered",
     "citations": [
       "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-"
@@ -184,11 +191,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1757,
-      102
+      117
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -200,7 +208,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Management estimates 3.5 full-time equivalents (FTEs) are consumed by carrier invoice reconciliation, a manual process identified as a candidate for AI-assisted automation (Board Memo Q3 2026, dated 2026-10-14).",
+    "answer": "Management estimates 3.5 full-time equivalents (FTEs) are consumed by carrier invoice reconciliation, a manual process that is a candidate for AI-assisted automation. This is a management estimate from the Q3 2026 board memo dated 2026-10-14.",
     "status": "answered",
     "citations": [
       "MEMO-BRIGHTWATER-2026-Q3#automation-and-process-opportunities"
@@ -211,11 +219,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1405,
-      141
+      147
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -227,7 +236,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Brightwater Logistics' TTM EBITDA margin to 30 Sep 2026 is about 11.4%. Calculation: TTM EBITDA $9.6M / TTM revenue $84.2M = 0.1140, or 11.4%. The figures are management accounts and are unaudited.",
+    "answer": "Brightwater Logistics' TTM EBITDA margin to 30 Sep 2026 is about 11.4%. Calculation: TTM EBITDA $9.6M / TTM revenue $84.2M = 0.1140, or 11.4%. These are unaudited management accounts.",
     "status": "answered",
     "citations": [
       "PACK-BRIGHTWATER-2026-09#headline-kpis-trailing-twelve-months-to-",
@@ -239,11 +248,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1859,
-      181
+      177
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -255,12 +265,12 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Pinecrest's leverage (net debt / TTM EBITDA) is about 3.67x. Arithmetic: net debt $19.8M / TTM EBITDA $5.4M = 3.667x, rounded to 3.67x. This is below the senior facility covenant maximum of 3.75x, leaving about 0.08x of headroom (3.75x - 3.67x). The figures are management accounts and unaudited, from the September 2026 KPI pack (trailing twelve months to 30 Sep 2026). The fund policy defines leverage as net debt divided by TTM EBITDA, which matches this calculation.",
+    "answer": "Pinecrest's net debt / EBITDA is about 3.67x. Calculation: net debt $19.8M / TTM EBITDA $5.4M = 3.667x, which rounds to 3.67x. Both figures are for the trailing twelve months to 30 Sep 2026. The policy defines leverage as net debt divided by trailing twelve month EBITDA, which is the same basis used here. The senior facility covenant maximum is 3.75x, so headroom is about 0.08x. The figures are unaudited management accounts.",
     "status": "answered",
     "citations": [
       "PACK-PINECREST-2026-09#headline-kpis-trailing-twelve-months-to-",
-      "PACK-PINECREST-2026-09#covenant",
       "POLICY-FUND-REPORTING#definitions",
+      "PACK-PINECREST-2026-09#covenant",
       "PACK-PINECREST-2026-09#commentary"
     ],
     "flags": [],
@@ -269,11 +279,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1723,
-      322
+      293
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -285,12 +296,12 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Pinecrest's covenant maximum is 3.75x (net debt / EBITDA, tested quarterly on TTM EBITDA, with capital leases included in net debt) [PACK-PINECREST-2026-09#covenant]. The policy defines leverage as net debt divided by TTM EBITDA, and net debt as borrowings plus capital leases less unrestricted cash [POLICY-FUND-REPORTING#definitions]. However, the provided context does not contain Pinecrest's actual leverage, net debt, or TTM EBITDA. The September KPI pack's headline KPI section is not included, and the Q3 board memo only lists covenant headroom as a risk without giving figures [MEMO-PINECREST-2026-Q3#risks]. Headroom (3.75x minus actual leverage) therefore cannot be calculated. Missing: Pinecrest's current net debt and TTM EBITDA, or its stated leverage ratio.",
+    "answer": "Pinecrest's covenant maximum is 3.75x (net debt / EBITDA, tested quarterly on trailing twelve month EBITDA, net debt including capital leases). However, the provided context does not contain Pinecrest's actual leverage, net debt, or trailing twelve month EBITDA. The headline KPI section of the Pinecrest pack (PACK-PINECREST-2026-09#headline-kpis-trailing-twelve-mo) is not among the provided chunks. The board memo only lists covenant headroom as a risk, without a figure. Headroom (3.75x minus actual leverage) therefore cannot be calculated. Missing: Pinecrest's actual net debt and TTM EBITDA, or its reported leverage.",
     "status": "not_found",
     "citations": [
       "PACK-PINECREST-2026-09#covenant",
-      "POLICY-FUND-REPORTING#definitions",
-      "MEMO-PINECREST-2026-Q3#risks"
+      "MEMO-PINECREST-2026-Q3#risks",
+      "POLICY-FUND-REPORTING#definitions"
     ],
     "flags": [],
     "score": {
@@ -298,11 +309,12 @@
       "values_ok": false,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": false
     },
     "tokens": [
       1643,
-      401
+      332
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -314,7 +326,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Tideline's EBITDA margin is about 8.9%. Calculation: TTM EBITDA $1.9M / TTM revenue $21.3M = 0.0892, or about 8.9%. Both figures are trailing twelve months to 30 Sep 2026 and are unaudited management accounts.",
+    "answer": "Tideline's EBITDA margin is about 8.9%, based on trailing twelve months to 30 Sep 2026. Calculation: TTM EBITDA $1.9M / TTM revenue $21.3M = 0.0892, or roughly 8.9%. The figures are management accounts and unaudited.",
     "status": "answered",
     "citations": [
       "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
@@ -326,11 +338,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1761,
-      176
+      182
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -342,7 +355,7 @@
       "recall": 0.8571428571428571,
       "hit_all": false
     },
-    "answer": "The context does not include any company's actual net debt, borrowings, capital leases, cash, or trailing twelve month EBITDA, so the actual net debt / EBITDA ratio cannot be calculated or compared for any portfolio company. The only leverage-related figures provided are covenant maximums (Tideline 4.5x; Brightwater, Marlow and Orchard 4.0x; Pinecrest 3.75x; Keystone 3.5x), and these are limits, not actual leverage. The policy defines leverage as net debt divided by trailing twelve month EBITDA, but no company data is given to apply it. Missing: each company's net debt components and TTM EBITDA (e.g., from the headline KPI sections of the monthly packs).",
+    "answer": "The context does not give actual net debt or trailing twelve month EBITDA figures for any portfolio company, so actual net debt to EBITDA cannot be calculated or ranked. The only leverage-related data are the maximum covenant levels: Tideline Software 4.5x, Brightwater Logistics 4.0x, Marlow Packaging 4.0x, Orchard Foods 4.0x, Pinecrest HVAC Services 3.75x, Keystone Dental Supply 3.5x. These are limits, not actual leverage, so they do not show which company has the highest net debt to EBITDA. Missing: each company's net debt (borrowings plus capital leases less unrestricted cash) and TTM EBITDA, or their reported leverage ratios.",
     "status": "not_found",
     "citations": [
       "POLICY-FUND-REPORTING#definitions",
@@ -359,11 +372,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": false,
+      "valid_cite": true,
       "correct": false
     },
     "tokens": [
       1654,
-      413
+      420
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -375,7 +389,7 @@
       "recall": 0.8571428571428571,
       "hit_all": false
     },
-    "answer": "The context cannot answer this. It gives each company's maximum net debt / EBITDA covenant (Brightwater 4.0x, Marlow 4.0x, Orchard 4.0x, Tideline 4.5x, Keystone 3.5x, Pinecrest 3.75x), but it does not give any company's actual net debt, TTM EBITDA, or current leverage. Headroom is the covenant limit minus actual leverage, so it cannot be calculated. Missing: current net debt and TTM EBITDA (or current leverage) for each company. The Brightwater board memo mentions covenant headroom as a principal risk but gives no figures. Keystone has the tightest covenant limit (3.5x), but that does not show it has the least headroom.",
+    "answer": "The context cannot answer this. It gives each company's maximum net debt / EBITDA covenant: Brightwater 4.0x, Marlow 4.0x, Orchard 4.0x, Tideline 4.5x, Keystone 3.5x, Pinecrest 3.75x. It gives no actual net debt, EBITDA or leverage figures for any company, so headroom (covenant limit minus actual leverage) cannot be calculated. The Brightwater board memo only lists covenant headroom as a principal risk and gives no figure. Keystone has the lowest covenant limit (3.5x), but a lower limit does not mean the smallest headroom. Missing: current net debt and trailing twelve month EBITDA (or reported leverage) for each company.",
     "status": "not_found",
     "citations": [
       "PACK-BRIGHTWATER-2026-09#covenant",
@@ -393,11 +407,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": false,
+      "valid_cite": true,
       "correct": false
     },
     "tokens": [
       1632,
-      442
+      445
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -409,7 +424,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Marlow Packaging has the highest customer concentration, with its largest customer at 27.0% of revenue. Comparison of the largest customer share of revenue across the portfolio: Marlow 27.0%, Orchard Foods 22.0%, Keystone Dental Supply 18.5%, Brightwater Logistics 11.0%, Tideline Software 9.0%, Pinecrest HVAC Services 6.0%. The Marlow Q3 board memo (dated 2026-10-14) reports the same 27.0%, so there is no conflict.",
+    "answer": "Marlow Packaging has the highest customer concentration, with its largest customer at 27.0% of revenue. Comparison of the largest-customer share across the six portfolio companies (TTM to 30 Sep 2026): Marlow 27.0%, Orchard Foods 22.0%, Keystone Dental Supply 18.5%, Brightwater Logistics 11.0%, Tideline Software 9.0%, Pinecrest HVAC Services 6.0%. The Q3 board memo for Marlow (dated 2026-10-14) gives the same 27.0%, so there is no conflict.",
     "status": "answered",
     "citations": [
       "PACK-MARLOW-2026-09#headline-kpis-trailing-twelve-months-to-",
@@ -426,11 +441,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       2292,
-      442
+      466
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -458,6 +474,7 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
@@ -474,7 +491,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Marlow Packaging's TTM EBITDA is $6.8M, per the later-dated Board Memo Q3 2026 (dated 2026-10-14). The earlier September KPI pack (dated 2026-10-08) reported $7.4M. The memo restated the figure after a $0.6M inventory write-down (7.4 - 0.6 = 6.8) and states it supersedes the September KPI pack for this figure.",
+    "answer": "Marlow Packaging's TTM EBITDA is $6.8M, per the later-dated board memo (MEMO-MARLOW-2026-Q3, dated 2026-10-14). This conflicts with the September KPI pack (PACK-MARLOW-2026-09, dated 2026-10-08), which reported $7.4M. The memo restated the figure after a $0.6M inventory write-down (7.4 - 0.6 = 6.8) and states that it supersedes the September KPI pack for this figure. Using the later-dated document, the current value is $6.8M.",
     "status": "conflict",
     "citations": [
       "MEMO-MARLOW-2026-Q3#restatement",
@@ -486,11 +503,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1785,
-      222
+      270
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -502,23 +520,26 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "{\"status\":\"conflict\",\"answer\":\"Marlow's net debt / EBITDA is about 3.57x, using the later-dated EBITDA figure. The two documents give different TTM EBITDA values. The September KPI pack (dated 2026-10-08) shows $7.4M. The Q3 board memo (dated 2026-10-14) restates it to $6.8M after a $0.6M inventory write-down, and says it supersedes the pack for this figure. Net debt is $24.3M per the September pack, and the memo does not restate it. Leverage is net debt divided by TTM EBITDA, so: $24.3M / $6.8M = 3.57x. On the superseded figure it would have been $24.3M / $7.4M = 3.28x. Either way, leverage is below the 4.0x maximum covenant, which is tested quarterly on TTM EBITDA with capital",
-    "status": "answered",
-    "citations": [],
-    "flags": [
-      "uncited_answer",
-      "unparsed_model_output"
+    "answer": "Marlow's leverage (net debt / TTM EBITDA) is about 3.57x, using the later-dated restated EBITDA. The two documents give different TTM EBITDA values. The September KPI pack (dated 2026-10-08) shows $7.4M. The Q3 board memo (dated 2026-10-14) restates it to $6.8M after a $0.6M inventory write-down and says it supersedes the pack for this figure. I used the later memo's $6.8M. Net debt is $24.3M in the September pack, and the memo does not restate it. Calculation: 24.3 / 6.8 = 3.57x. On the superseded $7.4M, leverage would have been 24.3 / 7.4 = 3.28x. The 3.57x is below the 4.0x maximum covenant, which is tested quarterly on TTM EBITDA with capital leases included in net debt. The leverage definition (net debt divided by TTM EBITDA) comes from the fund policy.",
+    "status": "conflict",
+    "citations": [
+      "PACK-MARLOW-2026-09#headline-kpis-trailing-twelve-months-to-",
+      "MEMO-MARLOW-2026-Q3#restatement",
+      "PACK-MARLOW-2026-09#covenant",
+      "POLICY-FUND-REPORTING#definitions"
     ],
+    "flags": [],
     "score": {
       "status_ok": true,
       "values_ok": true,
       "text_ok": true,
-      "cite_ok": false,
+      "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1784,
-      600
+      682
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -530,23 +551,25 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "{\"status\":\"conflict\",\"answer\":\"Yes, the restatement exceeds the threshold. The two documents give different TTM EBITDA values. The September KPI pack (dated 2026-10-08) shows $7.4M. The Q3 board memo (dated 2026-10-14) restates it to $6.8M after a $0.6M inventory write-down. Under the policy, the later-dated memo governs, so $6.8M is the figure to use. Arithmetic: $7.4M - $6.8M = $0.6M, and $0.6M / $7.4M = 8.1%. This is above the 5% materiality threshold, so the restatement is material and must be notified to the Investment Committee within 5 business days. The",
-    "status": "answered",
-    "citations": [],
-    "flags": [
-      "uncited_answer",
-      "unparsed_model_output"
+    "answer": "Yes. The restatement exceeds the 5% materiality threshold. Marlow's TTM EBITDA appears in two documents with different values. The September KPI pack (dated 2026-10-08) shows $7.4M. The Q3 board memo (dated 2026-10-14) restates it to $6.8M after a $0.6M inventory write-down. The memo is later-dated and states it supersedes the pack, so $6.8M governs. Arithmetic: 7.4 - 6.8 = $0.6M, and 0.6 / 7.4 = 8.1%, which is above the 5% threshold. Under the policy, a restatement of more than 5% of the originally reported figure is material, and material restatements must be notified to the Investment Committee within 5 business days. The context does not say whether that notification has been made. The policy also requires the conflict between the two documents to be disclosed in any summary.",
+    "status": "conflict",
+    "citations": [
+      "POLICY-FUND-REPORTING#restatements-and-materiality",
+      "MEMO-MARLOW-2026-Q3#restatement",
+      "PACK-MARLOW-2026-09#headline-kpis-trailing-twelve-months-to-"
     ],
+    "flags": [],
     "score": {
       "status_ok": true,
       "values_ok": true,
       "text_ok": true,
-      "cite_ok": false,
+      "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1820,
-      600
+      666
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -558,7 +581,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Keystone Dental Supply's FY2026 revenue (year ended 30 Jun 2026) was $45.8M. The $47.5M figure in the September monthly pack is trailing twelve months to 30 Sep 2026, not a fiscal year figure, so the two numbers measure different periods and are not in conflict.",
+    "answer": "Keystone Dental Supply's FY2026 revenue (year ended 30 Jun 2026) was $45.8M. The $47.5M figure in the September monthly pack is trailing twelve months to 30 Sep 2026, not a fiscal year figure, so it is not a conflicting value for FY2026.",
     "status": "answered",
     "citations": [
       "MEMO-KEYSTONE-2026-Q3#fiscal-year-note",
@@ -570,11 +593,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1901,
-      195
+      192
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -586,7 +610,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "Keystone Dental Supply's fiscal year ends 30 June. FY2026 was the year ended 30 Jun 2026. The monthly KPI pack also lists the fiscal year end as June.",
+    "answer": "Keystone Dental Supply's fiscal year ends 30 June. The board memo states that FY2026 was the year ended 30 Jun 2026, and the monthly KPI pack header also lists the fiscal year end as June.",
     "status": "answered",
     "citations": [
       "MEMO-KEYSTONE-2026-Q3#fiscal-year-note",
@@ -598,11 +622,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1750,
-      140
+      148
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -611,11 +636,12 @@
     "category": "unanswerable",
     "question": "What is Tideline Software's Net Promoter Score?",
     "retrieval": null,
-    "answer": "The provided context does not contain Tideline Software's Net Promoter Score. The September 2026 KPI pack lists TTM revenue, TTM EBITDA, gross margin, net debt, headcount, largest customer share, ARR, net revenue retention (108%) and annual logo churn (7.2%), but no NPS. The Q3 2026 board memo does not mention NPS either.",
+    "answer": "The provided context does not report a Net Promoter Score for Tideline Software. The September 2026 KPI pack lists TTM revenue, TTM EBITDA, gross margin, net debt, headcount, largest customer share, ARR, net revenue retention (108%) and annual logo churn (7.2%), but no NPS. The Q3 2026 board memo does not mention it either. The missing information is a Net Promoter Score or customer satisfaction survey result.",
     "status": "not_found",
     "citations": [
       "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
-      "MEMO-TIDELINE-2026-Q3#summary"
+      "MEMO-TIDELINE-2026-Q3#summary",
+      "MEMO-TIDELINE-2026-Q3#risks"
     ],
     "flags": [],
     "score": {
@@ -623,11 +649,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1759,
-      209
+      256
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -636,7 +663,7 @@
     "category": "unanswerable",
     "question": "What was Keystone Dental Supply's FY2023 revenue?",
     "retrieval": null,
-    "answer": "The context does not give Keystone's FY2023 revenue. It only contains FY2026 revenue (year ended 30 Jun 2026) of $45.8M and TTM revenue to 30 Sep 2026 of $47.5M (which is not a fiscal year figure). No FY2023 figure, or earlier-year revenue data, is provided.",
+    "answer": "The context does not contain Keystone's FY2023 revenue. It only gives FY2026 revenue (year ended 30 Jun 2026) of $45.8M and TTM revenue to 30 Sep 2026 of $47.5M, which is not a fiscal year figure. No revenue for FY2023 (year ended 30 Jun 2023) is provided, so it cannot be determined.",
     "status": "not_found",
     "citations": [
       "MEMO-KEYSTONE-2026-Q3#fiscal-year-note",
@@ -648,11 +675,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1752,
-      204
+      218
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -661,27 +689,21 @@
     "category": "unanswerable",
     "question": "What is the compensation of Orchard Foods' CEO?",
     "retrieval": null,
-    "answer": "The provided context does not contain the CEO's compensation at Orchard Foods. The board memo (MEMO-ORCHARD-2026-Q3) and the September 2026 KPI pack (PACK-ORCHARD-2026-09) cover the summary, risks, automation opportunities, covenant terms, and headline KPIs (revenue, EBITDA, gross margin, net debt, headcount, customer concentration). Neither mentions executive or CEO compensation.",
+    "answer": "The provided context does not contain the CEO's compensation for Orchard Foods. The documents (the Q3 2026 board memo and the September 2026 KPI pack) cover headcount (245), revenue, EBITDA, net debt, covenants, risks, and automation opportunities, but none mention executive or CEO compensation.",
     "status": "not_found",
-    "citations": [
-      "MEMO-ORCHARD-2026-Q3#summary",
-      "MEMO-ORCHARD-2026-Q3#risks",
-      "MEMO-ORCHARD-2026-Q3#automation-and-process-opportunities",
-      "PACK-ORCHARD-2026-09#commentary",
-      "PACK-ORCHARD-2026-09#covenant",
-      "PACK-ORCHARD-2026-09#headline-kpis-trailing-twelve-months-to-"
-    ],
+    "citations": [],
     "flags": [],
     "score": {
       "status_ok": true,
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": false,
       "correct": true
     },
     "tokens": [
       1347,
-      334
+      127
     ],
     "model": "claude-sonnet-5-5"
   },
@@ -704,6 +726,7 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
@@ -720,7 +743,7 @@
       "recall": 1.0,
       "hit_all": true
     },
-    "answer": "When a restatement is material, the Investment Committee must be notified within 5 business days. Under the policy, a restatement is material if it changes a reported headline metric by more than 5% of the originally reported figure.",
+    "answer": "The Investment Committee must be notified within 5 business days when a restatement is material. A restatement is material if it changes a reported headline metric by more than 5% of the originally reported figure.",
     "status": "answered",
     "citations": [
       "POLICY-FUND-REPORTING#restatements-and-materiality"
@@ -731,11 +754,12 @@
       "values_ok": true,
       "text_ok": true,
       "cite_ok": true,
+      "valid_cite": true,
       "correct": true
     },
     "tokens": [
       1042,
-      113
+      106
     ],
     "model": "claude-sonnet-5-5"
   }

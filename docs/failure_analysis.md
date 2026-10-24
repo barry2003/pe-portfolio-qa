@@ -1,8 +1,10 @@
 # Failure analysis: live LLM eval, k=8
 
+## Run 1 (max_tokens=600)
+
 Run 2026-10-24, `python -m pe_qa.cli eval --mode llm --k 8`. Model returned by the API: `claude-sonnet-5-5` on all 26 calls. No `temperature` set (removed in this run; see Caveats). Raw output: `eval/results_llm_k8.json`.
 
-## Summary
+### Summary
 
 | Category | Correct |
 |---|---|
@@ -19,7 +21,7 @@ Tokens in/out: 45,111 / 6,711.
 
 Failed rows below: 3 scored incorrect (Q11, Q13, Q14) plus 2 scored correct but failing citation (Q18, Q19). Q13 and Q14 fail both.
 
-## Failures
+### Failures
 
 | ID | Question | Gold answer | Model answer (abridged) | Status (model / gold) | Retrieved chunk IDs (k=8, rank order) | Root cause |
 |---|---|---|---|---|---|---|
@@ -31,7 +33,7 @@ Failed rows below: 3 scored incorrect (Q11, Q13, Q14) plus 2 scored correct but 
 
 Root-cause counts: retrieval miss 3, bad citation 2 (both from truncation). None from arithmetic error, wrong abstention, missed conflict, or gold set error. Q15's gold-set issue (README) didn't cause a failure here; Q15 passed.
 
-## Observations
+### Observations
 
 1. **The model abstains correctly.** In all three wrong answers the model said `not_found` and named exactly what was missing (headline KPIs). The answer failures all trace to retrieval.
 2. **Doc-level recall hides the Q11 miss.** Q11 is hit-all at doc level but misses the one chunk with the numbers. A chunk-level retrieval metric would catch it.
@@ -39,8 +41,40 @@ Root-cause counts: retrieval miss 3, bad citation 2 (both from truncation). None
 4. **`max_tokens=600` is too low for conflict answers**, which restate both values, both dates and the arithmetic. Truncation turns valid JSON into a parse failure.
 5. **Scorer leniency.** Q18/Q19 are marked correct with status `answered` and zero citations, because `score_answer` accepts `answered` for conflict gold when the text matches `restat|supersed|conflict|differ`. Here it matched the unparsed JSON. Correct overall: 23/26; an answer that also requires `cite_ok` scores 21/26.
 
-## Caveats
+### Caveats
 
 - **Not deterministic.** `temperature=0` was removed: the 2026-10-21 API version rejects sampling parameters on every model, and `anthropic` 2.3.0 no longer accepts them. Re-runs can differ. This run is a single sample.
 - **Retrieved chunk IDs are recomputed.** LLM-mode results don't store them, so they come from `Pipeline.retrieve()` on the same question. BM25 is deterministic and the IDs match every citation the model returned.
 - `stop_reason` isn't recorded; truncation is inferred from output tokens = 600 and the answers ending mid-sentence.
+
+## Run 2 (max_tokens=1200, stricter scorer)
+
+Same command, same model (`claude-sonnet-5-5` on all 26 calls per the API response), no temperature. Two changes since Run 1: `max_tokens` 600 → 1200 in `pe_qa/llm.py`, and `score_answer` now requires at least one citation that points at a retrieved chunk for an answered or conflict result (`valid_cite`). Raw output: `eval/results_llm_k8.json` (Run 1's version is in commit `a45bc45`).
+
+| Category | Run 1, old scorer | Run 1, re-scored with new scorer | Run 2, as scored | Run 2, all gold docs cited |
+|---|---|---|---|---|
+| lookup | 8/8 | 8/8 | 8/8 | 8/8 |
+| compute | 3/4 | 3/4 | 3/4 | 3/4 |
+| conflict | 3/3 | 1/3 | 3/3 | 3/3 |
+| period | 2/2 | 2/2 | 2/2 | 2/2 |
+| policy | 2/2 | 2/2 | 2/2 | 2/2 |
+| multi-doc | 2/4 | 2/4 | 2/4 | 2/4 |
+| unanswerable | 3/3 | 3/3 | 3/3 | 3/3 |
+| **Total** | **23/26** | **21/26** | **23/26** | **23/26** |
+
+Tokens in/out: Run 1 45,111 / 6,711 (longest output 600, at the cap); Run 2 45,111 / 6,738 (longest output 682).
+
+"As scored" means the scorer's `correct` field (status, gold values, gold text, and from Run 2 on at least one valid citation). "All gold docs cited" additionally requires `cite_ok`: every gold document appears among the citations.
+
+### Q18 / Q19 fixed
+
+Both now return complete JSON with status `conflict` and citations that parse, so they pass on every row. Run 1's re-scored column shows the new scorer catches exactly the Run 1 truncation failures (Q18, Q19) and nothing else.
+
+### What remains: Q11, Q13, Q14 (retrieval)
+
+All three again answer `not_found` and name the missing headline KPIs; retrieved chunks are identical to Run 1 (BM25 is deterministic).
+
+- **Q13, Q14:** k=8 can't hold the needed chunks. An answer needs every pack's headline-KPI chunk plus the Marlow restatement (Q14: about 13 chunks), and the six covenant chunks take most of the eight slots.
+- **Q11:** this one is a ranking miss, not a capacity limit. It needs only two Pinecrest chunks (covenant + headline KPIs), but the other five companies' covenant chunks outrank the headline chunk.
+
+Next step for all three is retrieval, not prompting; see README "Next iterations" item 1.
