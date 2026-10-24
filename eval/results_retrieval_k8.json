@@ -5,7 +5,9 @@
     "question": "What was Brightwater Logistics' trailing twelve month revenue, in $M?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "PACK-BRIGHTWATER-2026-09#headline-kpis-trailing-twelve-months-to-",
@@ -24,7 +26,9 @@
     "question": "What is Tideline Software's gross margin?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
@@ -43,7 +47,9 @@
     "question": "How many employees does Pinecrest HVAC Services have?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "MEMO-PINECREST-2026-Q3#summary",
@@ -60,7 +66,9 @@
     "question": "What share of Orchard Foods' revenue comes from its largest customer?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "MEMO-ORCHARD-2026-Q3#summary",
@@ -79,7 +87,9 @@
     "question": "What is the maximum net debt to EBITDA allowed by Keystone Dental Supply's covenant?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "PACK-KEYSTONE-2026-09#covenant",
@@ -98,7 +108,9 @@
     "question": "What is Tideline Software's net revenue retention?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
@@ -117,7 +129,9 @@
     "question": "What is Tideline Software's ARR in $M?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "PACK-TIDELINE-2026-09#headline-kpis-trailing-twelve-months-to-",
@@ -136,7 +150,9 @@
     "question": "How many FTEs does Brightwater spend on carrier invoice reconciliation?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "MEMO-BRIGHTWATER-2026-Q3#automation-and-process-opportunities",
@@ -153,7 +169,9 @@
     "question": "What is Brightwater Logistics' EBITDA margin (EBITDA divided by revenue), in percent?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "PACK-BRIGHTWATER-2026-09#headline-kpis-trailing-twelve-months-to-",
@@ -172,7 +190,9 @@
     "question": "What is Pinecrest HVAC Services' net debt divided by EBITDA?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "PACK-PINECREST-2026-09#covenant",
@@ -191,7 +211,9 @@
     "question": "How many turns of covenant headroom does Pinecrest have (covenant maximum minus actual leverage)?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 0.5,
+      "chunk_hit_all": false
     },
     "retrieved": [
       "PACK-PINECREST-2026-09#covenant",
@@ -210,7 +232,9 @@
     "question": "What is Tideline Software's EBITDA margin in percent?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "MEMO-TIDELINE-2026-Q3#summary",
@@ -229,7 +253,9 @@
     "question": "Which portfolio company has the highest net debt to EBITDA?",
     "retrieval": {
       "recall": 0.8571428571428571,
-      "hit_all": false
+      "hit_all": false,
+      "chunk_recall": 0.0,
+      "chunk_hit_all": false
     },
     "retrieved": [
       "POLICY-FUND-REPORTING#definitions",
@@ -248,7 +274,9 @@
     "question": "Which portfolio company has the smallest covenant headroom?",
     "retrieval": {
       "recall": 0.8571428571428571,
-      "hit_all": false
+      "hit_all": false,
+      "chunk_recall": 0.46153846153846156,
+      "chunk_hit_all": false
     },
     "retrieved": [
       "PACK-BRIGHTWATER-2026-09#covenant",
@@ -267,7 +295,9 @@
     "question": "Which company has the largest customer concentration, and what is the percentage?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "PACK-BRIGHTWATER-2026-09#headline-kpis-trailing-twelve-months-to-",
@@ -286,7 +316,9 @@
     "question": "What is the total trailing twelve month revenue across all six portfolio companies, in $M?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "POLICY-FUND-REPORTING#reporting-calendar",
@@ -305,7 +337,9 @@
     "question": "What is Marlow Packaging's trailing twelve month EBITDA?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "PACK-MARLOW-2026-09#covenant",
@@ -324,7 +358,9 @@
     "question": "What is Marlow Packaging's net debt divided by EBITDA?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "POLICY-FUND-REPORTING#definitions",
@@ -343,7 +379,9 @@
     "question": "Does Marlow's EBITDA restatement exceed the fund's materiality threshold?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "POLICY-FUND-REPORTING#definitions",
@@ -362,7 +400,9 @@
     "question": "What was Keystone Dental Supply's FY2026 revenue, in $M?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "MEMO-KEYSTONE-2026-Q3#fiscal-year-note",
@@ -381,7 +421,9 @@
     "question": "When does Keystone Dental Supply's fiscal year end?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "MEMO-KEYSTONE-2026-Q3#fiscal-year-note",
@@ -446,7 +488,9 @@
     "question": "What percentage restatement does the fund treat as material?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "POLICY-FUND-REPORTING#restatements-and-materiality",
@@ -461,7 +505,9 @@
     "question": "Who must be notified when a restatement is material, and within how many business days?",
     "retrieval": {
       "recall": 1.0,
-      "hit_all": true
+      "hit_all": true,
+      "chunk_recall": 1.0,
+      "chunk_hit_all": true
     },
     "retrieved": [
       "POLICY-FUND-REPORTING#restatements-and-materiality",

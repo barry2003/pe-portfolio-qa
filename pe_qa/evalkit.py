@@ -32,7 +32,11 @@ def score_retrieval(q: dict, retrieved_chunk_ids: list[str]) -> dict | None:
         return None  # unanswerable or no doc requirement
     got = {doc_of(c) for c in retrieved_chunk_ids}
     gold = set(q["gold_docs"])
-    return {"recall": len(gold & got) / len(gold), "hit_all": gold <= got}
+    out = {"recall": len(gold & got) / len(gold), "hit_all": gold <= got}
+    if q.get("gold_chunks"):  # chunk level: were the exact sections holding the answer's facts retrieved?
+        gc = set(q["gold_chunks"])
+        out.update(chunk_recall=len(gc & set(retrieved_chunk_ids)) / len(gc), chunk_hit_all=gc <= set(retrieved_chunk_ids))
+    return out
 
 
 def score_answer(q: dict, status: str, answer: str, citations: list[str], retrieved: list[str] | None = None) -> dict:

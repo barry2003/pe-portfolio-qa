@@ -5,9 +5,12 @@ same dict, the answer key cannot drift from the documents.
 Run: python scripts/generate_corpus.py
 """
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+from pe_qa.ingest import load_chunks  # noqa: E402  (resolve gold chunk ids from the corpus just written)
 CORPUS = ROOT / "data" / "corpus"
 EVAL = ROOT / "eval"
 
@@ -133,44 +136,62 @@ Any restatement of a reported headline metric by more than {MATERIALITY_PCT}% of
 def build_questions(ids):
     P = lambda k: f"PACK-{k}-2026-09"
     M = lambda k: f"MEMO-{k}-2026-Q3"
+    by_section = {(c.doc_id, c.section.split(" (")[0]): c.chunk_id for c in load_chunks(CORPUS)}
+    def ch(doc, section):  # chunk id for a document section, e.g. ch(P("MARLOW"), "Covenant")
+        return by_section[(doc, section)]
+    H = lambda k: ch(P(k), "Headline KPIs")
     Q = []
-    def add(cat, q, status="answered", values=None, tol=None, text=None, docs=None):
+    # gold_chunks: the chunks holding every source fact the answer needs (the gold value itself, or the
+    # inputs to the calculation; for comparisons, the inputs for every company), within gold_docs.
+    def add(cat, q, status="answered", values=None, tol=None, text=None, docs=None, chunks=None):
         Q.append(dict(id=f"Q{len(Q)+1:02d}", category=cat, question=q, gold_status=status,
-                      gold_values=values or [], tol=tol, gold_text=text or [], gold_docs=docs or []))
+                      gold_values=values or [], tol=tol, gold_text=text or [], gold_docs=docs or [],
+                      gold_chunks=chunks or []))
     C = CO
-    add("lookup", "What was Brightwater Logistics' trailing twelve month revenue, in $M?", values=[C["BRIGHTWATER"]["rev"]], docs=[P("BRIGHTWATER")])
-    add("lookup", "What is Tideline Software's gross margin?", values=[C["TIDELINE"]["gm"]], docs=[P("TIDELINE")])
-    add("lookup", "How many employees does Pinecrest HVAC Services have?", values=[C["PINECREST"]["hc"]], docs=[P("PINECREST")])
-    add("lookup", "What share of Orchard Foods' revenue comes from its largest customer?", values=[C["ORCHARD"]["top"]], docs=[P("ORCHARD")])
-    add("lookup", "What is the maximum net debt to EBITDA allowed by Keystone Dental Supply's covenant?", values=[C["KEYSTONE"]["cov"]], docs=[P("KEYSTONE")])
-    add("lookup", "What is Tideline Software's net revenue retention?", values=[C["TIDELINE"]["nrr"]], docs=[P("TIDELINE")])
-    add("lookup", "What is Tideline Software's ARR in $M?", values=[C["TIDELINE"]["arr"]], docs=[P("TIDELINE")])
-    add("lookup", "How many FTEs does Brightwater spend on carrier invoice reconciliation?", values=[C["BRIGHTWATER"]["process_fte"]], docs=[M("BRIGHTWATER")])
+    add("lookup", "What was Brightwater Logistics' trailing twelve month revenue, in $M?", values=[C["BRIGHTWATER"]["rev"]], docs=[P("BRIGHTWATER")], chunks=[H("BRIGHTWATER")])
+    add("lookup", "What is Tideline Software's gross margin?", values=[C["TIDELINE"]["gm"]], docs=[P("TIDELINE")], chunks=[H("TIDELINE")])
+    add("lookup", "How many employees does Pinecrest HVAC Services have?", values=[C["PINECREST"]["hc"]], docs=[P("PINECREST")], chunks=[H("PINECREST")])
+    add("lookup", "What share of Orchard Foods' revenue comes from its largest customer?", values=[C["ORCHARD"]["top"]], docs=[P("ORCHARD")], chunks=[H("ORCHARD")])
+    add("lookup", "What is the maximum net debt to EBITDA allowed by Keystone Dental Supply's covenant?", values=[C["KEYSTONE"]["cov"]], docs=[P("KEYSTONE")], chunks=[ch(P("KEYSTONE"), "Covenant")])
+    add("lookup", "What is Tideline Software's net revenue retention?", values=[C["TIDELINE"]["nrr"]], docs=[P("TIDELINE")], chunks=[H("TIDELINE")])
+    add("lookup", "What is Tideline Software's ARR in $M?", values=[C["TIDELINE"]["arr"]], docs=[P("TIDELINE")], chunks=[H("TIDELINE")])
+    add("lookup", "How many FTEs does Brightwater spend on carrier invoice reconciliation?", values=[C["BRIGHTWATER"]["process_fte"]], docs=[M("BRIGHTWATER")],
+        chunks=[ch(M("BRIGHTWATER"), "Automation and process opportunities")])
     b = C["BRIGHTWATER"]; p = C["PINECREST"]; t = C["TIDELINE"]
-    add("compute", "What is Brightwater Logistics' EBITDA margin (EBITDA divided by revenue), in percent?", values=[round(100*b["ebitda"]/b["rev"], 1)], tol=0.15, docs=[P("BRIGHTWATER")])
-    add("compute", "What is Pinecrest HVAC Services' net debt divided by EBITDA?", values=[round(lev(p), 2)], tol=0.04, docs=[P("PINECREST")])
-    add("compute", "How many turns of covenant headroom does Pinecrest have (covenant maximum minus actual leverage)?", values=[round(p["cov"]-lev(p), 2)], tol=0.015, docs=[P("PINECREST")])
-    add("compute", "What is Tideline Software's EBITDA margin in percent?", values=[round(100*t["ebitda"]/t["rev"], 1)], tol=0.15, docs=[P("TIDELINE")])
+    add("compute", "What is Brightwater Logistics' EBITDA margin (EBITDA divided by revenue), in percent?", values=[round(100*b["ebitda"]/b["rev"], 1)], tol=0.15, docs=[P("BRIGHTWATER")], chunks=[H("BRIGHTWATER")])
+    add("compute", "What is Pinecrest HVAC Services' net debt divided by EBITDA?", values=[round(lev(p), 2)], tol=0.04, docs=[P("PINECREST")], chunks=[H("PINECREST")])
+    add("compute", "How many turns of covenant headroom does Pinecrest have (covenant maximum minus actual leverage)?", values=[round(p["cov"]-lev(p), 2)], tol=0.015, docs=[P("PINECREST")],
+        chunks=[H("PINECREST"), ch(P("PINECREST"), "Covenant")])
+    add("compute", "What is Tideline Software's EBITDA margin in percent?", values=[round(100*t["ebitda"]/t["rev"], 1)], tol=0.15, docs=[P("TIDELINE")], chunks=[H("TIDELINE")])
     allp = [P(k) for k in CO]
-    add("multi-doc", "Which portfolio company has the highest net debt to EBITDA?", text=["Pinecrest"], docs=allp + [M("MARLOW")])
+    allh = [H(k) for k in CO]
+    restate = ch(M("MARLOW"), "Restatement")
+    add("multi-doc", "Which portfolio company has the highest net debt to EBITDA?", text=["Pinecrest"], docs=allp + [M("MARLOW")],
+        chunks=allh + [restate])
     def headroom(c): return c["cov"] - lev(c)
     assert min(CO, key=lambda k: headroom(CO[k])) == "PINECREST" and max(CO, key=lambda k: lev(CO[k])) == "PINECREST"
-    add("multi-doc", "Which portfolio company has the smallest covenant headroom?", text=["Pinecrest"], docs=allp + [M("MARLOW")])
-    add("multi-doc", "Which company has the largest customer concentration, and what is the percentage?", text=["Marlow"], values=[27.0], docs=allp)
-    add("multi-doc", "What is the total trailing twelve month revenue across all six portfolio companies, in $M?", values=[round(sum(c["rev"] for c in CO.values()), 1)], tol=0.15, docs=allp)
+    add("multi-doc", "Which portfolio company has the smallest covenant headroom?", text=["Pinecrest"], docs=allp + [M("MARLOW")],
+        chunks=allh + [ch(P(k), "Covenant") for k in CO] + [restate])
+    add("multi-doc", "Which company has the largest customer concentration, and what is the percentage?", text=["Marlow"], values=[27.0], docs=allp, chunks=allh)
+    add("multi-doc", "What is the total trailing twelve month revenue across all six portfolio companies, in $M?", values=[round(sum(c["rev"] for c in CO.values()), 1)], tol=0.15, docs=allp, chunks=allh)
     m = C["MARLOW"]
-    add("conflict", "What is Marlow Packaging's trailing twelve month EBITDA?", status="conflict", values=[m["restated_ebitda"]], docs=[P("MARLOW"), M("MARLOW")])
-    add("conflict", "What is Marlow Packaging's net debt divided by EBITDA?", status="conflict", values=[round(lev(m), 2)], tol=0.03, docs=[P("MARLOW"), M("MARLOW")])
+    add("conflict", "What is Marlow Packaging's trailing twelve month EBITDA?", status="conflict", values=[m["restated_ebitda"]], docs=[P("MARLOW"), M("MARLOW")],
+        chunks=[H("MARLOW"), restate])
+    add("conflict", "What is Marlow Packaging's net debt divided by EBITDA?", status="conflict", values=[round(lev(m), 2)], tol=0.03, docs=[P("MARLOW"), M("MARLOW")],
+        chunks=[H("MARLOW"), restate])
     pct = round(100*(m["ebitda"]-m["restated_ebitda"])/m["ebitda"], 1)
-    add("conflict", "Does Marlow's EBITDA restatement exceed the fund's materiality threshold?", status="conflict", values=[pct], tol=0.2, text=["yes"], docs=[P("MARLOW"), M("MARLOW"), "POLICY-FUND-REPORTING"])
+    add("conflict", "Does Marlow's EBITDA restatement exceed the fund's materiality threshold?", status="conflict", values=[pct], tol=0.2, text=["yes"], docs=[P("MARLOW"), M("MARLOW"), "POLICY-FUND-REPORTING"],
+        chunks=[H("MARLOW"), restate, ch("POLICY-FUND-REPORTING", "Restatements and materiality")])
     k = C["KEYSTONE"]
-    add("period", "What was Keystone Dental Supply's FY2026 revenue, in $M?", values=[k["fy_rev"]], docs=[M("KEYSTONE")])
-    add("period", "When does Keystone Dental Supply's fiscal year end?", text=["June"], docs=[M("KEYSTONE")])
+    add("period", "What was Keystone Dental Supply's FY2026 revenue, in $M?", values=[k["fy_rev"]], docs=[M("KEYSTONE")], chunks=[ch(M("KEYSTONE"), "Fiscal year note")])
+    add("period", "When does Keystone Dental Supply's fiscal year end?", text=["June"], docs=[M("KEYSTONE")], chunks=[ch(M("KEYSTONE"), "Fiscal year note")])
     add("unanswerable", "What is Tideline Software's Net Promoter Score?", status="not_found")
     add("unanswerable", "What was Keystone Dental Supply's FY2023 revenue?", status="not_found")
     add("unanswerable", "What is the compensation of Orchard Foods' CEO?", status="not_found")
-    add("policy", "What percentage restatement does the fund treat as material?", values=[MATERIALITY_PCT], docs=["POLICY-FUND-REPORTING"])
-    add("policy", "Who must be notified when a restatement is material, and within how many business days?", text=["Investment Committee"], values=[5], docs=["POLICY-FUND-REPORTING"])
+    add("policy", "What percentage restatement does the fund treat as material?", values=[MATERIALITY_PCT], docs=["POLICY-FUND-REPORTING"],
+        chunks=[ch("POLICY-FUND-REPORTING", "Restatements and materiality")])
+    add("policy", "Who must be notified when a restatement is material, and within how many business days?", text=["Investment Committee"], values=[5], docs=["POLICY-FUND-REPORTING"],
+        chunks=[ch("POLICY-FUND-REPORTING", "Restatements and materiality")])
     return Q
 
 def main():

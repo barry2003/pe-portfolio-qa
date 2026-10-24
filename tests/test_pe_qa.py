@@ -88,6 +88,20 @@ def test_retrieval_score_uses_doc_level_recall():
     assert doc_of("A#1") == "A"
 
 
+def test_chunk_level_recall_counts_exact_sections():
+    q = {"gold_docs": ["A"], "gold_chunks": ["A#kpis", "A#covenant"]}
+    s = score_retrieval(q, ["A#covenant", "A#risks"])
+    assert s["hit_all"] and s["chunk_recall"] == 0.5 and not s["chunk_hit_all"]
+
+
+def test_gold_chunks_exist_and_stay_within_gold_docs():
+    ids = {c.chunk_id for c in load_chunks(CORPUS)}
+    for q in load_questions(ROOT / "eval" / "questions.jsonl"):
+        assert bool(q["gold_chunks"]) == bool(q["gold_docs"]), q["id"]
+        assert set(q["gold_chunks"]) <= ids, q["id"]
+        assert {doc_of(c) for c in q["gold_chunks"]} == set(q["gold_docs"]), q["id"]
+
+
 def test_cross_portfolio_question_retrieves_packs_not_memo_boilerplate():
     hits = [c.chunk_id for c, _ in Pipeline(str(CORPUS), None).retrieve(
         "Which company has the largest customer concentration, and what is the percentage?")]

@@ -53,11 +53,14 @@ def print_summary(rows, mode, k, out):
     print(f"mode={mode} k={k} questions={len(rows)}  -> {out.name}")
     ret = [r for r in rows if r["retrieval"]]
     print(f"retrieval (answerable, {len(ret)} q): mean doc recall={statistics.mean(r['retrieval']['recall'] for r in ret):.2f}, "
-          f"hit-all={sum(r['retrieval']['hit_all'] for r in ret)}/{len(ret)}")
+          f"hit-all={sum(r['retrieval']['hit_all'] for r in ret)}/{len(ret)} | "
+          f"chunk recall={statistics.mean(r['retrieval']['chunk_recall'] for r in ret):.2f}, "
+          f"hit-all={sum(r['retrieval']['chunk_hit_all'] for r in ret)}/{len(ret)}")
     for c in cats:
         rr = [r for r in ret if r["category"] == c]
         if rr:
-            print(f"  {c:12s} recall={statistics.mean(r['retrieval']['recall'] for r in rr):.2f} hit-all={sum(r['retrieval']['hit_all'] for r in rr)}/{len(rr)}")
+            print(f"  {c:12s} doc recall={statistics.mean(r['retrieval']['recall'] for r in rr):.2f} hit-all={sum(r['retrieval']['hit_all'] for r in rr)}/{len(rr)}"
+                  f" | chunk recall={statistics.mean(r['retrieval']['chunk_recall'] for r in rr):.2f} hit-all={sum(r['retrieval']['chunk_hit_all'] for r in rr)}/{len(rr)}")
     if mode == "llm":
         ok = sum(r["score"]["correct"] for r in rows)
         cite = sum(r["score"]["cite_ok"] for r in rows)
